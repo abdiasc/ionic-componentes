@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button slot="icon-only" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Checkbox</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-checkbox slot="start"></ion-checkbox>
+      <ion-label>Checkbox 1</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-checkbox slot="end"></ion-checkbox>
+      <ion-label>Checkbox 2</ion-label>
+    </ion-item>
+
+    <ion-item *ngFor="let item of data" (click)="onClick(item)">
+      <ion-checkbox 
+        [color]="item.name" 
+        [(ngModel)]="item.selected"
+        slot="end"></ion-checkbox>
+      <ion-label>{{item.name}}</ion-label>
+    </ion-item>
+    <ion-button (click)="mostrarData()" expand="block">
+      Ver data
+    </ion-button>
+
+  </ion-list>
+</ion-content>
